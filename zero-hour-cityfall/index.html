@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#02050a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>ZERO HOUR: CITYFALL</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+  {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <div id="game"></div>
+  <div class="grain"></div><div class="vignette"></div><div id="hitFlash" class="hit-flash"></div><div id="boostFlash" class="boost-flash"></div>
+  <div id="bars" class="cinematic-bars on"><i></i><i></i></div>
+
+  <section id="startScreen" class="screen active">
+    <div class="start-copy">
+      <div class="eyebrow"><i></i> AEGIS RESPONSE NETWORK</div>
+      <h1>ZERO <span>HOUR</span></h1>
+      <h2>CITYFALL // WEB VERTICAL SLICE</h2>
+      <p>Reality fracture detected over Meridian City. Sovereign troops are already on the ground. Intercept before the breach stabilizes.</p>
+      <button id="startBtn"><span>DEPLOY AEGIS</span><b>01</b></button>
+      <div id="assetStatus" class="asset-status"><i></i><span>Loading combat suit…</span></div>
+      <small class="desktop-help">WASD move · drag mouse / pointer lock camera · click melee · E blast · Shift dash · F flight</small>
+      <small class="mobile-help">Left thumb move · swipe the right side to look · use the four combat buttons</small>
+    </div>
+    <div class="start-meta"><span>MERIDIAN CITY</span><b>02:13 AM // RED ALERT</b></div>
+  </section>
+
+  <section id="endScreen" class="screen">
+    <div class="end-card">
+      <div class="eyebrow"><i></i> BREACH EVENT // PHASE ONE</div>
+      <h2>THE SKY<br>OPENED.</h2>
+      <p>The first squad is down. The Sovereign carrier has entered Meridian airspace.</p>
+      <button id="restartBtn"><span>RE-DEPLOY</span><b>↻</b></button>
+    </div>
+  </section>
+
+  <div id="hud" class="hidden">
+    <header>
+      <div class="identity"><b>AEGIS</b><span>MK-VII INTERCEPTOR</span></div>
+      <div id="objective" class="objective"><small>MISSION</small><b>SECURE DISTRICT 7</b></div>
+    </header>
+    <div class="reticle"><i></i><i></i><b></b></div>
+    <div id="targetLock" class="target-lock hidden"><i></i><i></i><i></i><i></i><span id="targetText">18M</span></div>
+    <div id="warning" class="warning"></div>
+    <div class="lower-left">
+      <div class="meter-title"><span>ARMOR</span><b id="hpText">100</b></div><div class="meter hp"><i id="hpFill"></i></div>
+      <div class="meter-title energy-title"><span>REACTOR</span><b id="energyText">100</b></div><div class="meter energy"><i id="energyFill"></i></div>
+    </div>
+    <div id="flightChip" class="flight-chip"><i></i><span>GROUND MODE</span></div>
+    <div id="enemyCount" class="enemy-count"><small>HOSTILES</small><b>0 / 6</b></div>
+  </div>
+
+  <div id="mobile" class="mobile hidden">
+    <div id="moveZone" class="move-zone"><div id="stick" class="stick"><i></i></div></div>
+    <div id="lookZone" class="look-zone"></div>
+    <button id="meleeBtn" class="action melee"><span>MELEE</span><i>✦</i></button>
+    <button id="blastBtn" class="action blast"><span>BLAST</span><i>●</i></button>
+    <button id="dashBtn" class="action dash"><span>DASH</span><i>››</i></button>
+    <button id="flyBtn" class="action fly"><span>FLY</span><i>↑</i></button>
+  </div>
+
+  <div id="caption" class="caption hidden"><span>MERIDIAN CITY // DISTRICT 7</span><b>REALITY BREACH T+00:03</b></div>
+  <div id="riftMessage" class="rift-message hidden"><small>DIMENSIONAL EVENT</small><b>THE SOVEREIGN HAS ARRIVED</b></div>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
